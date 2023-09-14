@@ -1,6 +1,5 @@
 const slides = document.querySelectorAll('.slide');
 const buttons = document.querySelectorAll('.controls button');
-let currentSlide = 0;
 
 function showSlide(n) {
     slides.forEach((slide) => {
@@ -24,3 +23,11 @@ setInterval(nextSlide, 3000);
 
 // 最初のスライドを表示
 showSlide(0);
+
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const menuContent = document.querySelector('.menu-content');
+
+hamburgerMenu.addEventListener('click', () => {
+    menuContent.classList.toggle('open');
+    hamburgerMenu.classList.toggle('open');
+});

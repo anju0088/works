@@ -1,47 +1,7 @@
 body {
-    
     font-family: 'メイリオ', sans-serif;
     margin: 0;
-}
-
-
-
-@media screen and (max-width:400px) {
-
-    * {
-        float: none;
-        position: static;
-    }
     
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-	nav ul {
-        list-style: none; /* リストスタイルを削除 */
-        display: flex; /* 要素を横一列に並べる */
-        justify-content: flex-end;
-        
-        right: 0;
-    
-        margin: 0;
-        padding: 0;
-    
-        
-    }
-
-    nav a {
-        text-decoration: none; /* リンクの下線を削除 */
-        color: #000000; /* リンクのテキスト色 */
-        display: block;
-        
-        font-size: 0.1rem;
-        text-align: right;
-    }
-    
-    
-
 }
 
 .hamburger-menu {
@@ -49,7 +9,45 @@ body {
     top: 20px;
     right: 20px;
     cursor: pointer;
-    z-index: 9999;
+    z-index: 999;
+}
+
+.bar {
+    width: 40px;
+    height: 2.5px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-content {
+    position: fixed;
+    top: 0;
+    right: -250px; /* メニューを画面外に隠す */
+    width: 250px;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    z-index: 997; /* メニューコンテンツを最前面に表示 */
+    transition: right 0.3s ease;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* 透明度を調整 */
+    z-index: 998; /* メニューコンテンツよりも背面に表示 */
+    display: none;
+}
+.overlay.open {
+    display: block; /* メニューコンテンツが表示されたときにオーバーレイを表示 */
+}
+
+
+.menu-content.open {
+    right: 0; /* メニューを画面内に表示 */
 }
 
 .hamburger-menu.open .bar:nth-child(1) {
@@ -64,60 +62,13 @@ body {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
-.bar {
-    width: 30px;
-    height: 3px;
-    background-color: #333;
-    margin: 5px 0;
-    z-index: 9997;
-}
 
-.menu-content {
-    position: fixed;
-    top: 0;
-    right: -1670px;
-    width: 100%; /* 画面幅いっぱいに設定 */
-    height: 100%;
-    background-color: white;
-    transition: right 0.8s ease;
-    opacity: 0.8;
-    
-}
 
-.menu-content-block {
-    padding-top: 100px;
-    padding-left: 50px;
-}
-
-.menu-content ul {
-    padding-left: 20px; /* リスト項目の左の余白を設定 */
-    list-style: none;
-}
-
-.menu-content li {
-    margin: 10px 0; /* 各リスト項目の上下のマージンを設定 */
-    padding-left: 20px;
-    font-size: 30px; /* テキストのフォントサイズを設定 */
-    
-}
-
-.hamburger-menu .bar {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.menu-content.open {
-    right: 0; /* メニューを画面内に表示 */
-}
-
-.menu-content .menu-item {
-    width: 100%; /* 画面幅いっぱいに設定 */
-    /* 他のスタイル */
-}
 
 
 
 .head-box {
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.6);
     color: #000000; /* テキストの色 */
     height: 70px;
     width: 100%;
@@ -136,12 +87,12 @@ body {
 }
 
 .title-text {
-    font-size: 3px; /* 大きなテキストのフォントサイズを設定 */
-    padding-left: 25px;
-    margin-top: 10px;
-    margin-left: 20px;
-
+    padding-left: 45px;
+    padding-bottom: 4px;
+    
     margin: 0;
+
+    font-size: 160%;
 }
 
 
@@ -154,12 +105,16 @@ body {
     width: 70%;
     overflow: hidden;
 
-    font-size: 3px;
+    font-weight: 500;
+    
+}
+
+.header-right-title {
+    font-size: 100%;
 }
 
 nav {
     display: flex;
-    
 }
 
 nav ul {
@@ -173,22 +128,16 @@ nav ul {
     margin-bottom: 10px;
     margin-right: 24px;
     padding-right: 20px;
-
-    
 }
 
 nav li {
-    margin: 0 3px; /* 項目間の横の余白 */
-    width: 40%;
-    
+    margin: 0 10px; /* 項目間の横の余白 */
 }
 
 nav a {
     text-decoration: none; /* リンクの下線を削除 */
     color: #000000; /* リンクのテキスト色 */
     display: block;
-    
-    font-size: 0.1rem;
     text-align: left;
 }
 
@@ -267,3 +216,30 @@ img {
     color: #fff;
 }
 
+
+
+.moji{
+    font-size: 100%;
+}
+
+
+@media screen and (max-width:401px) {
+
+    * {
+        float: none;
+        position: static;
+    }
+    
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .title-text {
+        font-size: 20px;
+    }
+
+	.header-right{
+        display: none;
+    }
+}
